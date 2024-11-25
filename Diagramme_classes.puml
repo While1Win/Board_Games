@@ -1,0 +1,95 @@
+@startuml
+
+' Définition des classes et attributs
+class Player {
+    - symbol: Representation
+    + getSymbol(): Representation
+    + getMove(board: Cell[][]): int[]
+}
+
+class HumanPlayer {
+    - interactionUtilisateur: InteractionUtilisateur
+    - view: View
+    + getMove(board: Cell[][]): int[]
+}
+
+class ArtificialPlayer {
+    - random: Random
+    + getMove(board: Cell[][]): int[]
+}
+
+class BoardGame {
+    - tab: Cell[][]
+    - players: Player[]
+    + play(): void
+    + checkWin(symbol: Representation, sequenceLength: int): boolean
+    + isBoardFull(): boolean
+}
+
+class TicTacToe {
+    + play(): void
+}
+
+class Puissance4 {
+    + play(): void
+}
+
+class Gomoku {
+    + play(): void
+}
+
+class Cell {
+    - etat: Representation
+    + getEtat(): Representation
+    + setEtat(etat: Representation): void
+}
+
+class View {
+    + displayMessage(msg: Message): void
+    + displayMessage(msg: Message, args: Object...): void
+    + displayBoard(board: Cell[][]): void
+}
+
+class InteractionUtilisateur {
+    - scanner: Scanner
+    + getCoordinate(max: int, view: View, msg: Message): int
+    + getMove(board: Cell[][], view: View): int[]
+}
+
+enum Message {
+    WELCOME
+    PLAYER_TURN
+    ENTER_ROW
+    ENTER_COLUMN
+    INVALID_INPUT
+    INVALID_COORDINATES
+    CELL_OCCUPIED
+    WINNER
+    DRAW
+}
+
+enum Representation {
+    EMPTY
+    X
+    O
+}
+
+' Relations d'héritage
+Player <|-- HumanPlayer
+Player <|-- ArtificialPlayer
+BoardGame <|-- TicTacToe
+BoardGame <|-- Puissance4
+BoardGame <|-- Gomoku
+
+' Associations
+HumanPlayer --> InteractionUtilisateur
+HumanPlayer --> View
+ArtificialPlayer --> Random
+BoardGame --> Cell
+BoardGame --> Player
+View --> Message
+InteractionUtilisateur --> View
+InteractionUtilisateur --> Message
+InteractionUtilisateur --> Scanner
+
+@enduml

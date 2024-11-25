@@ -1,0 +1,27 @@
+@startuml
+actor Player
+participant HumanPlayer
+participant InteractionUtilisateur
+participant View
+participant BoardGame
+participant ArtificialPlayer
+participant Cell
+
+Player -> HumanPlayer : makeMove()
+HumanPlayer -> InteractionUtilisateur : getMove(Cell[][] board, View view)
+InteractionUtilisateur -> View : displayMessage(Message message)
+View -> InteractionUtilisateur : getCoordinate(max, view, Message message)
+InteractionUtilisateur -> InteractionUtilisateur : getMove(board, view)
+InteractionUtilisateur -> HumanPlayer : return move
+HumanPlayer -> BoardGame : updateBoard(move)
+BoardGame -> Cell : setEtat(Representation symbol)
+BoardGame -> View : displayBoard(Cell[][] board)
+BoardGame -> BoardGame : checkWin(Representation symbol)
+BoardGame -> View : displayMessage(Message WINNER)
+
+alt AI Move
+    Player -> ArtificialPlayer : makeMove()
+    ArtificialPlayer -> BoardGame : getValidMove()
+    ArtificialPlayer -> BoardGame : updateBoard(move)
+end
+@enduml
