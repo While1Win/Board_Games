@@ -1,7 +1,7 @@
 package games;
 
 import players.Player;
-import display.Representation;
+import display.State;
 
 /**
  * An abstract class representing the base structure for board games.
@@ -59,7 +59,7 @@ public abstract class BoardGame {
      * @param sequenceLength the length of the sequence to verify.
      * @return true if the sequence matches the symbol, false otherwise.
      */
-    public boolean verify(int line, int col, int linePlus, int colPlus, Representation symbol, int sequenceLength) {
+    public boolean verify(int line, int col, int linePlus, int colPlus, State symbol, int sequenceLength) {
         int count = 0;
 
         for (int i = 0; i < sequenceLength; i++) {
@@ -86,7 +86,7 @@ public abstract class BoardGame {
      * @param sequenceLength the length of the winning sequence.
      * @return true if the player has won, false otherwise.
      */
-    public boolean checkWin(Representation symbol, int sequenceLength) {
+    public boolean checkWin(State symbol, int sequenceLength) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < width; j++) {
                 if (tab[i][j].getEtat() == symbol) {
@@ -110,7 +110,7 @@ public abstract class BoardGame {
     protected boolean isBoardFull() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < width; j++) {
-                if (tab[i][j].getEtat() == Representation.EMPTY) {
+                if (tab[i][j].getEtat() == State.EMPTY) {
                     return false;
                 }
             }

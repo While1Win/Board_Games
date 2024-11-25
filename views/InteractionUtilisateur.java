@@ -2,7 +2,7 @@ package views;
 
 import java.util.Scanner;
 import display.Message;
-import display.Representation;
+import display.State;
 import games.Cell;
 
 /**
@@ -69,7 +69,7 @@ public class InteractionUtilisateur {
             row = getCoordinate(board.length - 1, view, Message.ENTER_ROW); // Prompt for row.
             col = getCoordinate(board.length - 1, view, Message.ENTER_COLUMN); // Prompt for column.
 
-            if (board[row][col].getEtat() != Representation.EMPTY) {
+            if (board[row][col].getEtat() != State.EMPTY) {
                 view.displayMessage(Message.CELL_OCCUPIED); // Notify if the cell is already occupied.
             } else {
                 validMove = true;

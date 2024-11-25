@@ -1,8 +1,10 @@
-import display.Representation;
+import display.State;
 import games.Gomoku;
 import games.Puissance4;
 import players.ArtificialPlayer;
+import players.HumanPlayer;
 import players.Player;
+import views.InteractionUtilisateur;
 import views.View;
 
 public class Main {
@@ -10,14 +12,14 @@ public class Main {
        
 
     View view = new View();
-    //  InteractionUtilisateur interactionUtilisateur = new InteractionUtilisateur();
+    InteractionUtilisateur interactionUtilisateur = new InteractionUtilisateur();
 
-    //  Player player1 = new HumanPlayer(Representation.X, interactionUtilisateur, view);
+    Player player1 = new HumanPlayer(State.X, interactionUtilisateur, view);
     //  Player player2 = new ArtificialPlayer(Representation.O);
 
     //  TicTacToe game = new TicTacToe(3, player1, player2, view);
-    Player player1 = new ArtificialPlayer( Representation.X);  
-    Player player2 = new ArtificialPlayer( Representation.O);  
+    //Player player1 = new ArtificialPlayer( State.X);  
+    Player player2 = new ArtificialPlayer( State.O);  
 
 
     Gomoku game3 = new Gomoku(player1, player2,view);

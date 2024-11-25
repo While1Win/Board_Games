@@ -20,7 +20,7 @@ public class ArtificialPlayer extends Player {
      *
      * @param symbol the symbol representing the AI player on the board.
      */
-    public ArtificialPlayer(Representation symbol) {
+    public ArtificialPlayer(State symbol) {
         super(symbol);
         this.random = new Random();
     }
@@ -38,7 +38,7 @@ public class ArtificialPlayer extends Player {
         do {
             row = random.nextInt(board.length); // Generate a random row index
             col = random.nextInt(board.length); // Generate a random column index
-        } while (board[row][col].getEtat() != Representation.EMPTY); // Ensure the cell is empty
+        } while (board[row][col].getEtat() != State.EMPTY); // Ensure the cell is empty
         return new int[]{row, col};
     }
 }

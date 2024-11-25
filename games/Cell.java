@@ -2,16 +2,16 @@ package games;
 import display.*;
 public class Cell {
     //private String space ="   ";
-    private Representation etat;
+    private State etat;
 
     public Cell(){
-        this.etat = Representation.EMPTY;
+        this.etat = State.EMPTY;
     }
     
 
-    public Representation getEtat (){return etat;}
+    public State getEtat (){return etat;}
 
-    public void setEtat (Representation etat){
+    public void setEtat (State etat){
         this.etat = etat;
     }
 

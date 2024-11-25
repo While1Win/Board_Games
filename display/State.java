@@ -4,7 +4,7 @@ package display;
  * Enumération des différentes représentations possibles pour une case du jeu.
  * Les trois états sont : vide, X et O.
  */
-public enum Representation {
+public enum State {
     
     /**
      * Représentation d'une cellule vide sur le plateau.
@@ -29,7 +29,7 @@ public enum Representation {
      * 
      * @param etat La chaîne de caractères représentant l'état de la cellule (vide, X ou O).
      */
-    Representation (String etat) {
+    State (String etat) {
         this.etat = etat;
     }
 

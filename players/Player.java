@@ -1,6 +1,6 @@
 package players;
 
-import display.Representation;
+import display.State;
 import display.*;
 import games.*;
 
@@ -14,23 +14,23 @@ public abstract class Player {
     /**
      * The symbol representing the player on the board.
      */
-    private Representation symbol;
+    private State symbol;
 
     /**
      * Constructs a player with a specified symbol.
      *
      * @param symbol the symbol representing the player on the board.
      */
-    public Player(Representation symbol) {
+    public Player(State symbol) {
         this.symbol = symbol;
     }
 
     /**
      * Gets the symbol of the player.
      *
-     * @return the player's symbol as a {@link Representation}.
+     * @return the player's symbol as a {@link State}.
      */
-    public Representation getSymbol() {
+    public State getSymbol() {
         return symbol;
     }
 

@@ -1,6 +1,6 @@
 package players;
 
-import display.Representation;
+import display.State;
 import games.Cell;
 import views.InteractionUtilisateur;
 import views.View;
@@ -28,7 +28,7 @@ public class HumanPlayer extends Player {
      * @param interactionUtilisateur the handler for user input interactions.
      * @param view                   the handler for displaying messages and the board.
      */
-    public HumanPlayer(Representation symbol, InteractionUtilisateur interactionUtilisateur, View view) {
+    public HumanPlayer(State symbol, InteractionUtilisateur interactionUtilisateur, View view) {
         super(symbol);
         this.interactionUtilisateur = interactionUtilisateur;
         this.view = view;
